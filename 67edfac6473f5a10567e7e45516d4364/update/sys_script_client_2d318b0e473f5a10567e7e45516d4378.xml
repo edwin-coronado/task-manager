@@ -11,12 +11,17 @@
         <name>Confirm closure</name>
         <order/>
         <script><![CDATA[function onSubmit() {
-    var status = g_form.getValue('status');
-    if (status === 'closed') {
-        if (!confirm("Are you sure you want to close this task?")) {
+    var currentStateValue = g_form.getValue('state');
+
+    if (currentStateValue === 'complete') {
+        var confirmed = confirm('Are you sure you want to mark this record as complete?');
+        
+        if (!confirmed) {
             return false;
         }
     }
+    
+    return true;
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
         <sys_created_by>edwin.coronado@snc</sys_created_by>
@@ -24,7 +29,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>2d318b0e473f5a10567e7e45516d4378</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Confirm closure</sys_name>
         <sys_overrides/>
         <sys_package display_value="Task Manager" source="x_snc_task_mger">67edfac6473f5a10567e7e45516d4364</sys_package>
@@ -32,7 +37,7 @@
         <sys_scope display_value="Task Manager">67edfac6473f5a10567e7e45516d4364</sys_scope>
         <sys_update_name>sys_script_client_2d318b0e473f5a10567e7e45516d4378</sys_update_name>
         <sys_updated_by>edwin.coronado@snc</sys_updated_by>
-        <sys_updated_on>2025-02-20 05:48:14</sys_updated_on>
+        <sys_updated_on>2025-02-20 05:59:57</sys_updated_on>
         <table>x_snc_task_mger_task</table>
         <type>onSubmit</type>
         <ui_type>0</ui_type>
