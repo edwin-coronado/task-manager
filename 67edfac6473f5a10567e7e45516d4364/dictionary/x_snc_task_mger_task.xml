@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="c2ae7e0a473f5a10567e7e45516d4301" label="Task" max_length="40" name="x_snc_task_mger_task" type="collection">
+        <element label="Short description" mandatory="true" max_length="100" name="short_description" type="string"/>
+        <element choice="3" default="new" label="State" max_length="40" name="state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="New" sequence="100" value="new"/>
+                <element inactive_on_update="false" label="In Progress" sequence="200" value="in_progress"/>
+                <element inactive_on_update="false" label="Complete" sequence="300" value="complete"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" read_only="true" type="string"/>
+        <element default="javascript:gs.getUserID()" dynamic_default_value="90d1921e5f510100a9ad2572f2b477fe" label="User" mandatory="true" max_length="32" name="user" read_only="true" reference="sys_user" type="reference" use_dynamic_default="true"/>
+        <element label="Details" max_length="5000" name="details" type="string"/>
+        <index name="index">
+            <element name="user"/>
+        </index>
+    </element>
+</database>
